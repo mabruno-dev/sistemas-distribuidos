@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
-import useOpenModal from "../hooks/Dialog";
+import useOpenModal from "../contexts/Dialog";
 import { postProduct } from "../requests/productsRequests";
 import { PostProduct } from "../types/product";
 

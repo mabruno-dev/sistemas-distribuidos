@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BaseLayout from "./components/BaseLayout";
-import { OpenModalProvider } from "./hooks/Dialog";
+import { OpenModalProvider } from "./contexts/Dialog";
+import { CauseRefecthProvider } from "./contexts/Refetch";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -28,10 +29,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <OpenModalProvider>
-                    <BaseLayout />
-                    {children}
-                </OpenModalProvider>
+                <CauseRefecthProvider>
+                    <OpenModalProvider>
+                        <BaseLayout />
+                        {children}
+                    </OpenModalProvider>
+                </CauseRefecthProvider>
             </body>
         </html>
     );

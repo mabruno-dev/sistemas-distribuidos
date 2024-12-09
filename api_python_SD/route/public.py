@@ -1,5 +1,5 @@
 from datetime import datetime
-from fastapi import APIRouter, Body, Header
+from fastapi import APIRouter, Body, Header, Path
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 from db import Database
@@ -32,11 +32,6 @@ class Public():
                                           self.post_product,
                                           methods=['POST'],
                                           response_model=SetProduct,
-                                          responses=self.dictErrorResponse)
-
-        self.product_router.add_api_route('/product',
-                                          self.update_product,
-                                          methods=['PUT'],
                                           responses=self.dictErrorResponse)
 
         self.product_router.add_api_route('/product',
@@ -73,8 +68,13 @@ class Public():
         except Exception as E:
             errorFunction(self, E)
 
-    async def update_product(self):
-        pass
+    async def delete_product(self, product_id: int):
+        try:
+            with Database() as db:
+                sql = "DELETE FROM products WHERE id = %s"
+                db.execute(sql, (product_id,))
+                db.commit()
 
-    async def delete_product(self):
-        pass
+                return JSONResponse(content=json.dumps({"mensagem": "Sucesso!"}), status_code=200)
+        except Exception as E:
+            errorFunction(self, E)

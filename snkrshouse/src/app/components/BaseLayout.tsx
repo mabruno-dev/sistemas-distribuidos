@@ -1,7 +1,7 @@
 "use client";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import useOpenModal from "../hooks/Dialog";
+import useOpenModal from "../contexts/Dialog";
 
 const navigation = [
     { name: "Loja", href: "/", current: true },
