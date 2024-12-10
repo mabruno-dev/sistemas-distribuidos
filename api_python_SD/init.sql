@@ -1,6 +1,6 @@
 CREATE DATABASE SD;
 
-\c SD
+
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,        
@@ -9,3 +9,6 @@ CREATE TABLE products (
     description TEXT,             
     image TEXT                    
 );
+
+INSERT INTO products (name, price, description, image) VALUES
+('Item 1', 50, 'teste', 'teste');

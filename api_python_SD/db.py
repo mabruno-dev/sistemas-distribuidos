@@ -6,12 +6,12 @@ class Database():
 
     def __init__(self) -> None:
         try:
-            self.connection = postgresql.connect("""dbname='SD'
-                                                    host='localhost'
-                                                    port=5432
-                                                    user='postgres'
-                                                    password='root'
-                                                    """)
+            self.connection = postgresql.connect("""dbname='fastapi_db'
+                                                host='db'  
+                                                port=5432
+                                                user='user'  
+                                                password='password'  
+                                                """)
             self._cursor = self.connection.cursor(
                 cursor_factory=DictCursor)
         except Exception as E:
