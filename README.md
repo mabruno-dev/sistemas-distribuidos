@@ -8,3 +8,4 @@
 - rodar yarn dev ou npm run dev
 
 ## O front end está na porta 3000 e o back na 5000
+"# sd_uff" 
