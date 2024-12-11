@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { PostProduct } from '@/app/types/product';
 
-const URL = 'http://localhost:8000/public/product';
+const URL = 'http://15.229.1.114:8000/public/product';
 
 const headers = {
 	headers: {
